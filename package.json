@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "cli-color": "^2.0.3",
+    "rimraf": "^4.1.2"
+  },
+  "name": "create-express-app",
+  "version": "1.0.0",
+  "main": "cea.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
