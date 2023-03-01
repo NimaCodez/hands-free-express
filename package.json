@@ -1,16 +1,23 @@
 {
-  "dependencies": {
-    "cli-color": "^2.0.3",
-    "rimraf": "^4.1.2"
-  },
   "name": "create-express-app",
   "version": "1.0.0",
+  "description": "",
   "main": "cea.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DevNima-PG/hands-free-express.git"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "bugs": {
+    "url": "https://github.com/DevNima-PG/hands-free-express/issues"
+  },
+  "homepage": "https://github.com/DevNima-PG/hands-free-express#readme",
+  "devDependencies": {
+    "cli-color": "^2.0.3"
+  }
 }
