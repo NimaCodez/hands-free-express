@@ -1,5 +1,5 @@
 const path = require('path');
-const { workingDIR } = require('./getWorkingDir');
+const workingDIR = process.cwd();
 const { serverCode, ControllerBaseCode, routesCode, VerifyAccessTokenCode, ValidationErrorMapperCode, SendResponseCode, SignAccessTokenCode, indexCode, env, keyGenCode } = require("./contents");
 
 const folders = [
@@ -88,7 +88,6 @@ const files = [
     content: env
   }
 ];
-
 
 module.exports = {
   folders,
