@@ -2,18 +2,28 @@ const { execSync } = require("child_process");
 const clc = require("cli-color");
 const { mkdirSync, writeFileSync } = require("fs");
 
-const createFilesAndFolders = (folders, files) => {
+const createFilesAndFolders = (folders, files, mode) => {
     for (let dir of folders) {
         mkdirSync(dir, {
             recursive: true
         })
         console.log(`${clc.green('DIR CREATED')} ${dir}`)
     }
-
-    for (let file of files) {
-        writeFileSync(`${file.inside}/${file.name}`, file.content);
-        console.log(`${clc.blueBright('FILE CREATED')} ${file.name}`)
+   
+    if (mode === 'new') {
+        for (let file of files) {
+            writeFileSync(`${file.inside}/${file.name}`, '');
+            console.log(`${clc.blueBright('FILE CREATED')} ${file.name}`)
+        }
     }
+
+    else if (mode === 'class-based' || mode === 'cb') {
+        for (let file of files) {
+            writeFileSync(`${file.inside}/${file.name}`, file.content);
+            console.log(`${clc.blueBright('FILE CREATED')} ${file.name}`)
+        }
+    }
+
 }
 
 const installPackages = (packages) => {
