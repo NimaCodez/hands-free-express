@@ -1,2 +1,2 @@
 @echo off
-node "D:\projects\create-express-app\cea.js" -mode %*
+node "D:\projects\create-express-app\src\cea.js" -mode %*

@@ -1,6 +1,7 @@
 const { execSync } = require("child_process");
 const clc = require("cli-color");
 const { mkdirSync, writeFileSync } = require("fs");
+const { files2 } = require("./foldersAndFiles");
 
 const createFilesAndFolders = (folders, files, mode) => {
     for (let dir of folders) {
@@ -10,7 +11,7 @@ const createFilesAndFolders = (folders, files, mode) => {
         console.log(`${clc.green('DIR CREATED')} ${dir}`)
     }
    
-    if (mode === 'new') {
+    if (mode === 'new-cb') {
         for (let file of files) {
             writeFileSync(`${file.inside}/${file.name}`, '');
             console.log(`${clc.blueBright('FILE CREATED')} ${file.name}`)
@@ -19,6 +20,13 @@ const createFilesAndFolders = (folders, files, mode) => {
 
     else if (mode === 'class-based' || mode === 'cb') {
         for (let file of files) {
+            writeFileSync(`${file.inside}/${file.name}`, file.content);
+            console.log(`${clc.blueBright('FILE CREATED')} ${file.name}`)
+        }
+    }
+    
+    else {
+        for (let file of files2) {
             writeFileSync(`${file.inside}/${file.name}`, file.content);
             console.log(`${clc.blueBright('FILE CREATED')} ${file.name}`)
         }
@@ -35,7 +43,7 @@ const installPackages = (packages) => {
 }
 
 const helpMessage = () => {
-    console.log(clc.redBright('ERROR: Invalid Options.\n'), clc.green('Options: \n >> new (Empty Project)\n >> help \n >> class-based (OOP Based Project) \n >> no-app (Suggestion for functional Projects)'))
+    console.log(clc.redBright(' - These are your options:\n'), clc.cyan('>> new-cb (OOP Based Empty Project)\n >> help \n >> class-based (OOP Based Project) \n >> no-app (Suggestion for functional Projects)'))
 }
 
 module.exports = {
