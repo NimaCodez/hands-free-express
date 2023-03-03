@@ -46,8 +46,22 @@ const helpMessage = () => {
     console.log(clc.redBright(' - These are your options:\n'), clc.cyan('>> new-cb (OOP Based Empty Project)\n >> help \n >> class-based (OOP Based Project) \n >> no-app (Suggestion for functional Projects)'))
 }
 
+const initGit = () => {
+    console.log(clc.cyan('>> Initializing git...'));
+    execSync('git init');
+    console.log(clc.cyan('>> Initialized ✅✨🎉'));
+    console.log(clc.cyan('>> Creating .gitignore ...'));
+    writeFileSync(`${process.cwd()}/.gitignore`, 'node_modules\n.env\n')
+    console.log(clc.cyan('>> Git Shits Done ✅'));
+}
+
+// const runServer = () => {
+//     execSync('npm i -g nodemon && nodemon index.js');
+// }
+
 module.exports = {
     createFilesAndFolders,
     installPackages,
-    helpMessage
+    helpMessage,
+    initGit
 }

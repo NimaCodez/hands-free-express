@@ -109,11 +109,6 @@ const folders2 = [
 
 const files2 = [
   {
-    name: "ControllerBase.js",
-    inside: path.join(workingDIR, "controllers"),
-    content: ControllerBaseCode
-  },
-  {
     name: "auth.controller.js",
     inside: path.join(workingDIR, "controllers", "auth"),
     content: ''

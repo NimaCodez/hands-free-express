@@ -1,7 +1,6 @@
-const { execSync, createFilesAndFolders, installPackages, files, folders, packages, folders2, files2 } = require("./index.requirements");
+const { execSync, createFilesAndFolders, installPackages, files, folders, packages, folders2, files2,helpMessage, initGit } = require("./index.requirements");
 execSync('npm init -y && npm i -D cli-color');
 const { clc } = require("./index.requirements");
-const { helpMessage } = require("./topLevels");
 
 (function CreateExpressAPP(mode){
     mode = process.argv[3]
@@ -10,5 +9,6 @@ const { helpMessage } = require("./topLevels");
     if (mode === 'no-app') createFilesAndFolders(folders2, files2, mode);
     else createFilesAndFolders(folders, files, mode);
     installPackages(packages);
+    initGit()
     console.log(clc.green('+ INSTALLATION AND STRUCTURING SUCCESSFUL!'));
 })();

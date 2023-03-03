@@ -196,8 +196,8 @@ require('dotenv').config();
 
 new server(process.env.PORT, process.env.DB_URL)`;
 
-const env = `PORT=
-DB_URL=mongodb://127.0.0.1:27017/
+const env = `PORT=5000
+DB_URL=mongodb://127.0.0.1:27017/my-app
 JWT_SECRET_KEY=`;
 
 const keyGenCode = `const crypto = require("crypto");
