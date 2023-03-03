@@ -34,7 +34,12 @@ const installPackages = (packages) => {
     }
 }
 
+const helpMessage = () => {
+    console.log(clc.redBright('ERROR: Invalid Options.\n'), clc.green('Options: \n >> new (Empty Project)\n >> help \n >> class-based (OOP Based Project) \n >> no-app (Suggestion for functional Projects)'))
+}
+
 module.exports = {
     createFilesAndFolders,
-    installPackages
+    installPackages,
+    helpMessage
 }
