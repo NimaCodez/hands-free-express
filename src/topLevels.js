@@ -1,6 +1,6 @@
-const { execSync } = require("child_process");
+const { execSync, exec } = require("child_process");
 const clc = require("cli-color");
-const { mkdirSync, writeFileSync } = require("fs");
+const { mkdirSync, writeFileSync, readFileSync } = require("fs");
 const { files2 } = require("./foldersAndFiles");
 
 const createFilesAndFolders = (folders, files, mode) => {
@@ -8,13 +8,13 @@ const createFilesAndFolders = (folders, files, mode) => {
         mkdirSync(dir, {
             recursive: true
         })
-        console.log(`${clc.green('DIR CREATED')} ${dir}`)
+        console.log(`${clc.green('DIR CREATED')} ${clc.magenta(dir)}`)
     }
-   
+
     if (mode === 'new-cb') {
         for (let file of files) {
             writeFileSync(`${file.inside}/${file.name}`, '');
-            console.log(`${clc.blueBright('FILE CREATED')} ${file.name}`)
+            console.log(`${clc.blueBright('FILE CREATED')} ${clc.blue(file.name)}`)
         }
     }
 
@@ -24,14 +24,13 @@ const createFilesAndFolders = (folders, files, mode) => {
             console.log(`${clc.blueBright('FILE CREATED')} ${file.name}`)
         }
     }
-    
+
     else {
         for (let file of files2) {
             writeFileSync(`${file.inside}/${file.name}`, file.content);
             console.log(`${clc.blueBright('FILE CREATED')} ${file.name}`)
         }
     }
-
 }
 
 const installPackages = (packages) => {
@@ -52,16 +51,54 @@ const initGit = () => {
     console.log(clc.cyan('>> Initialized ✅✨🎉'));
     console.log(clc.cyan('>> Creating .gitignore ...'));
     writeFileSync(`${process.cwd()}/.gitignore`, 'node_modules\n.env\n')
-    console.log(clc.cyan('>> Git Shits Done ✅'));
+    console.log(clc.cyan('>> Git Related Shits Done ✅'));
 }
 
-// const runServer = () => {
-//     execSync('npm i -g nodemon && nodemon index.js');
-// }
+const runServer = async () => {
+    console.log(clc.cyan('>> Running server...'));
+    // console.log(execSync('npm run dev'))
+    const { exec } = require('child_process');
+
+    // Run the dev script with nodemon
+    const nodemon = exec('npm run dev');
+    
+    // Print the output of nodemon to the console
+    nodemon.stdout.on('data', (data) => {
+      console.log(data);
+    });
+    
+    // Handle errors from nodemon
+    nodemon.on('error', (err) => {
+      console.error(`Error running nodemon: ${err.message}`);
+    });
+    
+    // Handle the exit of nodemon
+    nodemon.on('exit', (code, signal) => {
+      console.log(`nodemon exited with code ${code} and signal ${signal}`);
+    });
+    
+
+
+}
+
+const addDevCommandToPackageJson = () => {
+    console.log(`${clc.cyan('>> Adding [dev] command to package.json...')}`)
+    // Read the package.json file
+    const packageJson = JSON.parse(readFileSync('package.json'));
+    
+    // Add a new dev script
+    packageJson.scripts.dev = 'nodemon index.js';
+    
+    // Write the modified package.json file
+    writeFileSync('package.json', JSON.stringify(packageJson, null, 2));
+    console.log(`${clc.bgMagenta('>+ Added ✅🎉 ')}`)
+}
 
 module.exports = {
     createFilesAndFolders,
     installPackages,
     helpMessage,
-    initGit
+    initGit,
+    addDevCommandToPackageJson,
+    runServer
 }

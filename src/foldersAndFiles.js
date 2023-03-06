@@ -1,6 +1,6 @@
 const path = require('path');
 const workingDIR = process.cwd();
-const { serverCode, ControllerBaseCode, routesCode, VerifyAccessTokenCode, ValidationErrorMapperCode, SendResponseCode, SignAccessTokenCode, indexCode, env, keyGenCode, secondServerCode } = require("./contents");
+const { serverCode, ControllerBaseCode, routesCode, VerifyAccessTokenCode, ValidationErrorMapperCode, SendResponseCode, SignAccessTokenCode, indexCode, env, keyGenCode, secondIndexCode } = require("./contents");
 
 const folders = [
   path.join(workingDIR, 'app'),
@@ -161,7 +161,7 @@ const files2 = [
   {
     name: "index.js",
     inside: workingDIR,
-    content: secondServerCode
+    content: secondIndexCode
   },
   {
     name: ".env",
