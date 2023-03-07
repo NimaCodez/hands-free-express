@@ -99,6 +99,8 @@ const folders2 = [
   path.join(workingDIR, 'validations', 'users'),
   path.join(workingDIR, 'validations', 'admin'),
   path.join(workingDIR, 'models'),
+  path.join(workingDIR, 'connections'),
+  path.join(workingDIR, 'configs'),
   path.join(workingDIR, 'routes'),
   path.join(workingDIR, 'routes', 'auth'),
   path.join(workingDIR, 'routes', 'admin'),
