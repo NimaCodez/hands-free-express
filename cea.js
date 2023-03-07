@@ -1,5 +1,4 @@
 const { execSync, createFilesAndFolders, installPackages, files, folders, packages, folders2, files2, helpMessage, initGit, runServer, addDevCommandToPackageJson } = require("./src/index.requirements");
-execSync('npm init -y && npm i -D cli-color');
 const { clc } = require("./src/index.requirements");
 const mode = process.argv[2];
 

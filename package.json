@@ -1,6 +1,6 @@
 {
   "name": "hands-free-express",
-  "version": "1.1.2",
+  "version": "1.1.4",
   "description": "-THE ULTIMATE TOOL OF BUILDING FAST-",
   "bin": {
     "cea": "./cli.js"
@@ -21,11 +21,8 @@
     "url": "https://github.com/DevNima-PG/hands-free-express/issues"
   },
   "homepage": "https://github.com/DevNima-PG/hands-free-express#readme",
-  "devDependencies": {
-    "cli-color": "^2.0.3",
-    "yargs": "^17.7.1"
-  },
   "dependencies": {
+    "cli-color": "^2.0.3",
     "d": "^1.0.1",
     "es5-ext": "^0.10.62",
     "es6-iterator": "^2.0.3",
