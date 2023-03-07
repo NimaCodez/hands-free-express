@@ -21,20 +21,13 @@ Aaaa~ A good one. Well, Actually one night when I was just chatting as normal wi
 # USAGE
 *for the day I'm writing this (3/7/2023) there is no automatic way to set ENVs on system from code, but I have the idea about fixing it. And I will. Wait a little*.
 
-## Windows Users:
-1. Do a clone of this repo anywhere you want
-2. Press Windows button and type ```env```
-3. Click on ```Environment Variables```
-4. In both user variables and system variables, create a new env by pressing the ```new``` button and fill variable name with ```cea```.
-5. Then choose ```Browse Directory``` and select the directory of cloned project as this Example: ```YourDrive:\path\to\hands-free-express\src```
-6. Also double-click on both path variables and add the above address to your system's path too so your CMD or PowerShell can access it by typing ```cea xxx```.
-7. Restart your PC/laptop and it's done! ✅
+## Downloading:
+1. Do a ```npm i -g hands-free-express```
+2. Run the <a href="#commands">Commands</a> ✅✨🎉
 
-## Unix Based (macOS && Linux)
-*Hey Bro, if I was  professional I wouldn't use Windows! You as a Unix based user should know how to fix ENV problems or at least how to search it! 🗿 GOOD LUCK*
+<h1 id="commands">Commands</h1>
 
-# Commands
 ```cea help``` helps you get along with options and things here. <br />
 ```cea new-cb``` Creates a brand-new empty class-based project. <br />
-```cea class-based``` or ```cea cb```: Creates a filled and almost ready OOP based project. <br />
+```cea class-based``` or ```cea cb``` Creates a filled and almost ready OOP based project. <br />
 ```cea no-app``` Creates a Functional-suggested folder structure with the basic code you need for running your server with an index route (It's Perfect, Believe me and test it). <strong> You Don't even need to write a fucking single line of code for getting a server up and running.</strong>
