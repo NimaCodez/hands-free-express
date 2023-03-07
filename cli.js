@@ -14,11 +14,11 @@ if (!fs.existsSync(ceaPath)) {
 const child = exec(`node ${ceaPath} ${process.argv[2]}`);
 
 child.stdout.on('data', (data) => {
-  console.log(data);
+  process.stdout.write(data);
 });
 
 child.stderr.on('error', (err) => {
-  console.log('Error Running cea: ' + err.message)
+  process.stdout.write('Error Running cea: ' + err.message);
 });
 
 child.on('close', (code) => {
