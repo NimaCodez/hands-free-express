@@ -19,13 +19,12 @@ Aaaa~ A good one. Well, Actually one night when I was just chatting as normal wi
 - What Else you want! Open an issue and let's talk!
 
 # USAGE
-*for the day I'm writing this (3/7/2023) there is no automatic way to set ENVs on system from code, but I have the idea about fixing it. And I will. Wait a little*.
 
 ## Downloading:
 1. Do a ```npm i -g hands-free-express```
 2. Run the <a href="#commands">Commands</a> ✅✨🎉
 
-<h1 id="commands">Commands</h1>
+<h2 id="commands">Commands</h2>
 
 ```cea help``` helps you get along with options and things here. <br />
 ```cea new-cb``` Creates a brand-new empty class-based project. <br />
