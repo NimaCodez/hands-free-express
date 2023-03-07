@@ -1,21 +1,26 @@
 #!/usr/bin/env node
 
-const yargs = require('yargs');
 const { exec } = require('child_process');
+const path = require('path');
+const fs = require('fs');
 
-yargs
-  .command('-mode [model]', 'Generate a new Express app', (yargs) => {
-    yargs.positional('model', {
-      type: 'string',
-      describe: 'Folder structure model of the new Express app',
-    });
-  }, (argv) => {
-    exec(`node ./cea.js ${argv.model}`, (err, stdout, stderr) => {
-      if (err) {
-        console.error(`Error: ${err.message}`);
-        return;
-      }
-      console.log(stdout);
-    });
-  })
-  .argv;
+const ceaPath = path.join(__dirname, 'cea.js');
+
+if (!fs.existsSync(ceaPath)) {
+  console.error(`Error: could not find required script at ${ceaPath}`);
+  process.exit(1);
+}
+
+const child = exec(`node ${ceaPath} ${process.argv[2]}`);
+
+child.stdout.on('data', (data) => {
+  console.log(data);
+});
+
+child.stderr.on('error', (err) => {
+  console.log('Error Running cea: ' + err.message)
+});
+
+child.on('close', (code) => {
+  console.log(`child process exited with code ${code}`);
+});
