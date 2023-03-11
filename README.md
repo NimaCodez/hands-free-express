@@ -1,4 +1,4 @@
-# hands-free-express(Windows Only yet (Unix bases coming soon))
+# hands-free-express
 -THE ULTIMATE TOOL OF BUILDING FAST-
 
 ## What was the problem?

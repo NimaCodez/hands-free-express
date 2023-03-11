@@ -8,7 +8,9 @@ const packages = [
     'morgan',
     'cors',
     'jsonwebtoken',
-    'dotenv'
+    'dotenv',
+    'helmet',
+    'jalali-moment',
 ]
 
 module.exports = {
