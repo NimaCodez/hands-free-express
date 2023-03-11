@@ -34,10 +34,11 @@ const createFilesAndFolders = (folders, files, mode) => {
     }
 }
 
-const installPackages = () => {
+const installPackages = (os) => {
     for (let package of packages) {
         console.log(clc.cyan(`>> Installing [${package}] ...`))
-        execSync(`npm i ${package}`)
+        if(os != 'win32') execSync(`sudo npm i ${package}`);
+        else execSync(`npm i ${package}`);
         console.log(clc.green(`>+ INSTALLED PKG [${package}]`))
     }
 }
