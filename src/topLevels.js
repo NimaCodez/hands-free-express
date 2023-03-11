@@ -1,7 +1,8 @@
-const { execSync, exec } = require("child_process");
+const { execSync } = require("child_process");
 const clc = require("cli-color");
 const { mkdirSync, writeFileSync, readFileSync } = require("fs");
 const { files2 } = require("./foldersAndFiles");
+const packages = require("./packages");
 
 const createFilesAndFolders = (folders, files, mode) => {
     for (let dir of folders) {
