@@ -1,6 +1,6 @@
-const { execSync, createFilesAndFolders, installPackages, files, folders, packages, folders2, files2, helpMessage, initGit, runServer, addDevCommandToPackageJson } = require("./src/index.requirements");
+const { createFilesAndFolders, installPackages, files, folders, packages, folders2, files2, helpMessage, initGit, runServer, addDevCommandToPackageJson } = require("./src/index.requirements");
 const { clc } = require("./src/index.requirements");
-const mode = process.argv[2];
+const mode = process.argv.includes('sudo') ? process.argv[3] : process.argv[2];
 
 (function CreateExpressAPP() {
     if (!['new-cb', 'help', 'class-based', 'cb', 'no-app'].includes(mode) || mode == 'help') return helpMessage();
