@@ -2,7 +2,7 @@ const { execSync } = require("child_process");
 const clc = require("cli-color");
 const { mkdirSync, writeFileSync, readFileSync } = require("fs");
 const { files2 } = require("./foldersAndFiles");
-const packages = require("./packages");
+const { packages } = require("./packages");
 
 const createFilesAndFolders = (folders, files, mode) => {
     for (let dir of folders) {
@@ -34,7 +34,7 @@ const createFilesAndFolders = (folders, files, mode) => {
     }
 }
 
-const installPackages = (os) => {
+function installPackages (os) {
     for (let package of packages) {
         console.log(clc.cyan(`>> Installing [${package}] ...`))
         if(os != 'win32') execSync(`sudo npm i ${package}`);
@@ -86,7 +86,7 @@ const runServer = async () => {
 const addDevCommandToPackageJson = () => {
     console.log(`${clc.cyan('>> Adding [dev] command to package.json...')}`)
     // Read the package.json file
-    const packageJson = JSON.parse(readFileSync('package.json'));
+    const packageJson = JSON.parse(readFileSync('../package.json'));
     
     // Add a new dev script
     packageJson.scripts.dev = 'nodemon index.js';

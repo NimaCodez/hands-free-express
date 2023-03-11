@@ -22,5 +22,5 @@ child.stderr.on('error', (err) => {
 });
 
 child.on('close', (code) => {
-  console.log(`child process exited with code ${code}`);
+  if (code !== 0) console.log(`child process exited with code ${code}`);
 });

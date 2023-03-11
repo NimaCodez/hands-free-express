@@ -1,4 +1,4 @@
-const { createFilesAndFolders, installPackages, files, folders, folders2, files2, helpMessage, initGit, runServer, addDevCommandToPackageJson } = require("./src/index.requirements");
+const { createFilesAndFolders, files, folders, folders2, files2, helpMessage, initGit, runServer, addDevCommandToPackageJson, installPackages } = require("./src/index.requirements");
 const { clc } = require("./src/index.requirements");
 const mode = process.argv.includes('sudo') ? process.argv[3] : process.argv[2];
 const platform = require('os').platform();
