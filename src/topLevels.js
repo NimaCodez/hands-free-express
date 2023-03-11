@@ -34,7 +34,7 @@ const createFilesAndFolders = (folders, files, mode) => {
     }
 }
 
-const installPackages = (packages) => {
+const installPackages = () => {
     for (let package of packages) {
         console.log(clc.cyan(`>> Installing [${package}] ...`))
         execSync(`npm i ${package}`)

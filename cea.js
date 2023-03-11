@@ -8,7 +8,7 @@ const mode = process.argv.includes('sudo') ? process.argv[3] : process.argv[2];
     else createFilesAndFolders(folders, files, mode);
 
     initGit();
-    installPackages(packages);
+    installPackages();
     addDevCommandToPackageJson();
 
     console.log(clc.green('+ INSTALLATION AND STRUCTURING SUCCESSFUL!'));
