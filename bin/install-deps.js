@@ -6,6 +6,7 @@ export function installDeps(os, packages) {
 		console.log(chalk.cyan(`>> Installing [${pkg}] ...`));
 		if (os != 'win32') execSync(`sudo npm i ${pkg}`);
 		else execSync(`npm i ${pkg}`);
+		console.log('rebase')
 		console.log(chalk.green(`>+ INSTALLED PKG [${pkg}]`));
 	}
 }
